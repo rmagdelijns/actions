@@ -27,6 +27,6 @@ class MainTest {
     @Test
     void testIfPrintIsHelloWorld() {
         Main.main(null);
-        assertEquals("hello world" + System.lineSeparator(), outContent.toString());
+        assertEquals("bye world" + System.lineSeparator(), outContent.toString());
     }
 }
