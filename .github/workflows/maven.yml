@@ -15,10 +15,9 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  buildMaven:
+    name: bouw met maven
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -29,5 +28,12 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file helloWorld/pom.xml
-    - name: ander naam
+
+  echoHi:
+    runs-on: ubuntu-latest
+    steps:
+    - name: echo
       run: echo "hi"
+
+      
+      
