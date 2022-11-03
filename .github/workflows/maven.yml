@@ -42,6 +42,8 @@ jobs:
         cache: maven
     - name: echo
       run: mvn test --file helloWorld/pom.xml
+    - name: rapport
+      run: mvn surefire-report:report  
     needs: buildMaven
       
       
