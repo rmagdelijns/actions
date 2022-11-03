@@ -43,7 +43,7 @@ jobs:
     - name: echo
       run: mvn test --file helloWorld/pom.xml
     - name: rapport
-      run: mvn surefire-report:report  
+      run: mvn surefire-report:report --file helloWorld/pom.xml
     needs: buildMaven
       
       
