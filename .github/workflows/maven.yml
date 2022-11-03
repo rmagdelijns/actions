@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: echo
-      run: echo "hi"
+      run: mvn test
     needs: buildMaven
 
       
