@@ -30,10 +30,12 @@ jobs:
       run: mvn -B package --file helloWorld/pom.xml
 
   echoHi:
+    name: echo hallo
     runs-on: ubuntu-latest
     steps:
     - name: echo
       run: echo "hi"
+    needs: buildMaven
 
       
       
