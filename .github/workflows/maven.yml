@@ -45,6 +45,5 @@ jobs:
         cache: maven
     - name: echo
       run: mvn test --file helloWorld/pom.xml
-    needs: buildMaven
       
       
