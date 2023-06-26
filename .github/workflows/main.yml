@@ -17,6 +17,6 @@ jobs:
       # The actions/cache step below uses this id to get the exact python version
     - name: print version
     # The actions/cache step below uses this id to get the exact python version
-      id: print pyton version
+      id: print_pyton_version
       run: echo "steps.setup-python.outputs.python-version"
 
