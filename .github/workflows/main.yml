@@ -13,10 +13,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Set up Python
+      id: setup-python
       uses: actions/setup-python@v2
       # The actions/cache step below uses this id to get the exact python version
     - name: print version
     # The actions/cache step below uses this id to get the exact python version
       id: print_pyton_version
       run: echo ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}
+    - name: Github App Access Token Cache
+      id: github-app-access-token-cache
+      uses: actions/cache@v3
+      with:
+        path: ${{ github.action_path }}/venv
+        key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-pipenv-${{ hashFiles('**/requirements.txt') }}
+
+    - name: Install Python dependencies
+      if: steps.github-app-access-token-cache.cache-hit != 'true'
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      run: |
+        python -m venv ./venv
+        source ./venv/bin/activate
+        pip install -r requirements.txt
 
