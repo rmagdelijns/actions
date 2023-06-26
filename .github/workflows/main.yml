@@ -12,6 +12,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Set up Python
       id: setup-python
       uses: actions/setup-python@v2
@@ -27,7 +28,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ${{ github.action_path }}/venv
-        key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('.github/workflows/requirements.txt') }}
+        key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/requirements.txt') }}
 
     - name: Install Python dependencies
       if: steps.github-app-access-token-cache.cache-hit != 'true'
@@ -36,5 +37,5 @@ jobs:
       run: |
         python -m venv ./venv
         source ./venv/bin/activate
-        pip install -r .github/workflows/requirements.txt
+        pip install -r requirements.txt
 
