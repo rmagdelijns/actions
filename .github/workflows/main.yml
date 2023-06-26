@@ -25,7 +25,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ${{ github.action_path }}/venv
-        key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/requirements.txt') }}
+        key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('requirements.txt') }}
 
     - name: Install Python dependencies
       if: steps.github-app-access-token-cache.cache-hit != 'true'
