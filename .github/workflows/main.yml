@@ -29,6 +29,10 @@ jobs:
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/requirements.txt') }}
+        
+    - name: create log file
+      run: mkdir -p logging-debug-deploy-sh
+           echo hello > logging-debug-deploy-sh.log
 
     - name: Install Python dependencies
       if: steps.github-app-access-token-cache.cache-hit != 'true'
@@ -44,5 +48,5 @@ jobs:
       if: always()
       with:
         name: validate-debug-logging
-        path: logging-debug-deploy-sh.log     
+        path: logging-debug-deploy-sh.log
 
