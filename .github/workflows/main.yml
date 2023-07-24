@@ -2,12 +2,18 @@
 
 name: Manual workflow
 
+
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
+
 on:
   workflow_dispatch:
 jobs:
   greet:
+    strategy:
+     matrix: 
+      node-version: [12, 13]
+     
     environment: prod
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -47,12 +53,6 @@ jobs:
         python -m venv ./venv
         source ./venv/bin/activate
         pip install -r requirements.txt
-        
-    - name: create log file
-      run: echo doei > logging-debug-deploy-sh.txt
-    - uses: actions/upload-artifact@v3
-      with:
-       path: logging-debug-deploy-sh2.txt
         
     - name: Store build logs
       uses: actions/upload-artifact@v3
