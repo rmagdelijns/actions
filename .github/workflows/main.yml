@@ -34,7 +34,10 @@ jobs:
       run:  mkdir -p logging-debug-deploy-sh
         
     - name: create log file
-      run: echo hello > logging-debug-deploy-sh.txt
+      run: echo hello > logging-debug-deploy-sh.txt   
+    - uses: actions/upload-artifact@v3
+      with:
+       path: logging-debug-deploy-sh.txt
 
     - name: Install Python dependencies
       if: steps.github-app-access-token-cache.cache-hit != 'true'
@@ -47,7 +50,9 @@ jobs:
         
     - name: create log file
       run: echo doei > logging-debug-deploy-sh.txt
-     
+    - uses: actions/upload-artifact@v3
+      with:
+       path: logging-debug-deploy-sh2.txt
         
     - name: Store build logs
       uses: actions/upload-artifact@v3
