@@ -38,4 +38,11 @@ jobs:
         python -m venv ./venv
         source ./venv/bin/activate
         pip install -r requirements.txt
+        
+    - name: Store build logs
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: validate-debug-logging
+        path: logging-debug-deploy-sh.log     
 
