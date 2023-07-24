@@ -33,6 +33,7 @@ jobs:
     - name: create log file
       run: mkdir -p logging-debug-deploy-sh
            echo hello > logging-debug-deploy-sh.txt
+           cat logging-debug-deploy-sh.txt
 
     - name: Install Python dependencies
       if: steps.github-app-access-token-cache.cache-hit != 'true'
