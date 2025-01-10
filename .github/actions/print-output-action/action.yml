@@ -1,0 +1,11 @@
+name: 'Print Output Action'
+description: 'An action to print the output variable from a previous job'
+inputs:
+  output:
+    description: 'The output variable to print'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - run: echo "De output is: ${{ inputs.output }}"
+      shell: bash
