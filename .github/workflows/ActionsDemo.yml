@@ -20,7 +20,7 @@ jobs:
       - name: Set output variable
         id: output_step
         run: |
-          echo "OUTPUTVOORBEELD=Hallo, dit is een output!" >> $GITHUB_ENV
+          echo "OUTPUTVOORBEELD=Hallo, dit is een output!" >> $GITHUB_OUTPUT
 
       - name: Print output variable
         run:  | 
