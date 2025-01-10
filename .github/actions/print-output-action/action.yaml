@@ -9,3 +9,4 @@ runs:
   steps:
     - run:  | 
         echo "De output is: ${{ inputs.output }}"
+    shell: bash
