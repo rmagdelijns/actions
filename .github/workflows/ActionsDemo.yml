@@ -28,7 +28,7 @@ jobs:
         id: output_step
         run:  | 
             echo "output=Hallo, dit is een output!" 
-            echo "OUTPUTVOORBEELD=$output >> $GITHUB_OUTPUT
+            echo "OUTPUTVOORBEELD=$output" >> $GITHUB_OUTPUT
 
       # Stap 2: Gebruik de output in een volgende stap
       - name: Print output variable
