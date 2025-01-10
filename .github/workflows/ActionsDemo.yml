@@ -14,11 +14,23 @@ jobs:
   Input-Output-parallel:
     runs-on: ubuntu-latest
     steps:
+    #stap met een output
       - name: Set output variable
+    #id is nodig bij een output
         id: output_step
         run: |
           echo "OUTPUTVOORBEELD=Hallo, dit is een output!" >> $GITHUB_OUTPUT
-
+	#nieuwe stap waar gebruik gemaakt wordt van output van vorige stap
+      - name: Print output variable
+        run:  | 
+          echo "De output is: ${{ steps.output_step.outputs.OUTPUTVOORBEELD }}"
+  
+  Ander-Job-Input:
+    runs-on: ubuntu-latest
+    # Runt pas nadat vorige job klaar is
+    needs: [Input-Output-parallel]
+    steps:
+    # Verwijst naar ander job, hier zal niets uit moeten komen 
       - name: Print output variable
         run:  | 
           echo "De output is: ${{ steps.output_step.outputs.OUTPUTVOORBEELD }}"
