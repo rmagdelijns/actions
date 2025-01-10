@@ -10,4 +10,4 @@ jobs:
     # Bij een run geef je aan dat het een linux commando is. 
       - run: echo "HI dit is een test" 
       - name: Ander Test
-      - run: echo "Ander test"
+        run: echo "Ander test"
