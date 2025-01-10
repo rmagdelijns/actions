@@ -14,3 +14,32 @@ jobs:
     # Geef een duidelijke naam bij de step
       - name: Ander Test
         run: echo "Ander test"
+
+# Nieuwe job; nieuw machine
+  Input-Output-parallel:
+    runs-on: ubuntu-latest
+    outputs:
+      OUTPUTVOORBEELD: ${{steps.output_step.OUTPUTVOORBEELD}}
+      
+    steps:
+      # Stap 1: Stel een output in
+      - name: Set output variable
+      # Id is nodig bij stap wat een output gaat doen.
+        id: output_step
+        run:  | 
+            echo "output=Hallo, dit is een output!" 
+            echo "OUTPUTVOORBEELD=$output >> $GITHUB_OUTPUT
+
+      # Stap 2: Gebruik de output in een volgende stap
+      - name: Print output variable
+        run: |
+              echo "De output is: ${{ steps.output_step.outputs.outputVoorbeeld }}
+
+
+# Nieuwe job; nieuwe machine, kan niet steps output van vorige job gebruiken
+  # Input-Output-parallel-geen-steps-output-van-vorige-job:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: echo "Parellel job hi"
+    
+  
