@@ -33,7 +33,7 @@ jobs:
       # Stap 2: Gebruik de output in een volgende stap
       - name: Print output variable
         run: |
-              echo "De output is: ${{ steps.output_step.outputs.outputVoorbeeld }}
+              echo "De output is: ${{ steps.output_step.outputs.outputVoorbeeld }} "
 
 
 # Nieuwe job; nieuwe machine, kan niet steps output van vorige job gebruiken
