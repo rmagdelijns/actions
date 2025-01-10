@@ -28,6 +28,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [Input-Output-parallel]
     steps:
+    # Nodig om bestanden binnente halen
+      - name: Check out repository
+        uses: actions/checkout@v4
       - name: Use custom action to print output
         uses: ./.github/actions/print-output-action
         with:
