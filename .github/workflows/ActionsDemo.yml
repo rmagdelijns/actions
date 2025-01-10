@@ -13,9 +13,6 @@ jobs:
 
   Input-Output-parallel:
     runs-on: ubuntu-latest
-    outputs:
-      OUTPUTVOORBEELD: ${{ steps.output_step.outputs.OUTPUTVOORBEELD }}
-      
     steps:
       - name: Set output variable
         id: output_step
