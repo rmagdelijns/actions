@@ -1,45 +1,26 @@
 name: GitHub Actions Demo
-# Hoe het in actions tab weergegeven wordt. actor is gene die het uitvoert. 
 run-name: ${{ github.actor }} is testing out GitHub Actions
 on:
-# Handmatige runs
   workflow_dispatch:
 
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-    # Bij een run geef je aan dat het een linux commando is. 
-      - run: echo "HI dit is een test" 
-    # Geef een duidelijke naam bij de step
+      - run: echo "HI dit is een test"
       - name: Ander Test
         run: echo "Ander test"
 
-# Nieuwe job; nieuw machine
   Input-Output-parallel:
     runs-on: ubuntu-latest
     outputs:
-      OUTPUTVOORBEELD: ${{steps.output_step.OUTPUTVOORBEELD}}
+      OUTPUTVOORBEELD: ${{ steps.output_step.outputs.OUTPUTVOORBEELD }}
       
     steps:
-      # Stap 1: Stel een output in
       - name: Set output variable
-      # Id is nodig bij stap wat een output gaat doen.
         id: output_step
-        run:  | 
-            echo "output=Hallo, dit is een output!" 
-            echo "OUTPUTVOORBEELD=$output" >> "$GITHUB_OUTPUT"
-
-      # Stap 2: Gebruik de output in een volgende stap
-      - name: Print output variable
         run: |
-              echo "De output is: ${{ steps.output_step.outputs.OUTPUTVOORBEELD }} "
+          echo "OUTPUTVOORBEELD=Hallo, dit is een output!" >> $GITHUB_ENV
 
-
-# Nieuwe job; nieuwe machine, kan niet steps output van vorige job gebruiken
-  # Input-Output-parallel-geen-steps-output-van-vorige-job:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: echo "Parellel job hi"
-    
-  
+      - name: Print output variable
+        run: echo "De output is: ${{ steps.output_step.outputs.OUTPUTVOORBEELD }}"
