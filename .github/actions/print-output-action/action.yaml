@@ -7,5 +7,6 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: echo "De output is: ${{ inputs.output }}"
+    - run:  | 
+        echo "De output is: ${{ inputs.output }}"
       shell: bash
