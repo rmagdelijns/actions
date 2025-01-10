@@ -23,4 +23,5 @@ jobs:
           echo "OUTPUTVOORBEELD=Hallo, dit is een output!" >> $GITHUB_ENV
 
       - name: Print output variable
-        run: echo "De output is: ${{ steps.output_step.outputs.OUTPUTVOORBEELD }}"
+        run:  | 
+          echo "De output is: ${{ steps.output_step.outputs.OUTPUTVOORBEELD }}"
