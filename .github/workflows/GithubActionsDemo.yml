@@ -16,6 +16,9 @@ jobs:
         
   Input-Output-parallel:
     runs-on: ubuntu-latest
+    # Output toevoegen zodat het in andere jobs gebruikt kan worden
+    outputs:
+      OUTPUTVOORBEELD: ${{ steps.output_step.outputs.OUTPUTVOORBEELD }}
     steps:
     #stap met een output
       - name: Set output variable
@@ -36,4 +39,4 @@ jobs:
     # Verwijst naar ander job step, hier zal niets uit moeten komen 
       - name: Print output variable
         run:  | 
-          echo "De output is: ${{ steps.output_step.outputs.OUTPUTVOORBEELD }}"
+          echo "De output is: ${{ needs.Input-Output-parallel.outputs.OUTPUTVOORBEELD }}"
