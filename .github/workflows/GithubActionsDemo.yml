@@ -13,3 +13,8 @@ jobs:
     # Geef een duidelijke naam bij de test
       - name: Ander Test
         run: echo "Ander test"
+        
+  Input-Output-parallel:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "HI dit is een ander Machine" 
