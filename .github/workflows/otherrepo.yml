@@ -17,6 +17,8 @@ jobs:
       - name: setup git config
         run: |
           cd external_repository
+          git config user.name "GitHub Actions Bot"
+          git config user.email "screenit@topicus.nl"
           # Check if there are any files in the repository
           if [ "$(ls -A .)" ]; then
             # Remove all files from the repository
