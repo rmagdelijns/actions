@@ -34,9 +34,9 @@ jobs:
           fi
 
           # Sync the contents from own_repository to external_repository, excluding dot files
-          rsync -av --exclude '.*' ../own_repository/ .
+          # rsync -av --exclude '.*' ../own_repository/ .
 
           # Add and commit the new files
-          git add -A
-          git commit -m "add all"
-          git push
+          # git add -A
+          # git commit -m "add all"
+          # git push
