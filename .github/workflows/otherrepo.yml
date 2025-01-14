@@ -15,6 +15,6 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "screenit@topicus.nl"
           # touch test.md
-          # git commit
-          # git push
+          git commit
+          git push
 
