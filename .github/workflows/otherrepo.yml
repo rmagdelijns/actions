@@ -7,15 +7,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          path: own_repository
+      - uses: actions/checkout@v3
+        with:
           repository: radio6254/temp
           ref: 'main'
           token:  ${{ secrets.SCREENIT_ROBOT_USER }}
+          path: external_repository
       - name: setup git config
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "screenit@topicus.nl"
-          touch test2.md
-          git add . 
-          git commit -m "hi2"
+          git rm -r *
+          git add * 
+          git commit -m "remove all"
           git push
-
+          rsync -av --exclude '.*' ../own_repository/ external_repository/
+          git add * 
+          git commit -m "add all"
+          git push
