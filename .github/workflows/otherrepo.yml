@@ -21,11 +21,10 @@ jobs:
           git config user.email "screenit@topicus.nl"
           # Remove all files from the repository
           git rm -rf * --ignore-unmatch 
-          git clean -fxd
 
 
           # Sync the contents from own_repository to external_repository, excluding dot files
-          # rsync -av --exclude '.*' ../own_repository/ .
+          rsync -av --exclude '.git' ../own_repository/ .
 
           # Add and commit the new files
           git add -A
