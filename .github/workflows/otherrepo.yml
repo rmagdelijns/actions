@@ -16,6 +16,7 @@ jobs:
           path: external_repository
       - name: setup git config
         run: |
+          ll
           cd external_repository
           git config user.name "GitHub Actions Bot"
           git config user.email "screenit@topicus.nl"
