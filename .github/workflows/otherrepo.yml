@@ -1,0 +1,20 @@
+name: GitHub Actions to other repository
+on:
+  workflow_dispatch:
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: https://github.com/radio6254/temp.git
+          ref: 'main'
+          token:  ${{ secrets.ROBOT_USER_SCREENIT }}
+      - name: setup git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "screenit@topicus.nl"
+          touch test.md
+          git commit
+          git push
+
