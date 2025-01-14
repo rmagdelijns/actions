@@ -20,7 +20,8 @@ jobs:
           cd external_repository
           git config user.name "GitHub Actions Bot"
           git config user.email "screenit@topicus.nl"
-          git rm -r *
+          git rm -rf .
+          git clean -fxd
           git add * 
           git commit -m "remove all"
           git push
