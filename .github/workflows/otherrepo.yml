@@ -16,6 +16,7 @@ jobs:
           path: external_repository
       - name: setup git config
         run: |
+          cd external_repository
           # Check if there are any files in the repository
           if [ "$(ls -A .)" ]; then
             # Remove all files from the repository
