@@ -22,7 +22,7 @@ jobs:
           git config user.email "screenit@topicus.nl"
           git rm -rf .
           git clean -fxd
-          git add * 
+          git add -A
           git commit -m "remove all"
           git push
           # rsync -av --exclude '.*' ../own_repository/ external_repository/
