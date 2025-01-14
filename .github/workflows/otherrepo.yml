@@ -24,7 +24,7 @@ jobs:
 
 
           # Sync the contents from own_repository to external_repository, excluding dot files
-          rsync -av --exclude '.git' ../own_repository/ .
+          rsync -av --exclude '.*' ../own_repository/ .
 
           # Add and commit the new files
           git add -A
