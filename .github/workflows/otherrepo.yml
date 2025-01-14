@@ -20,10 +20,9 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "screenit@topicus.nl"
           git rm -r *
-          ls
-          # git add * 
-          # git commit -m "remove all"
-          # git push
+          git add * 
+          git commit -m "remove all"
+          git push
           # rsync -av --exclude '.*' ../own_repository/ external_repository/
           # git add * 
           # git commit -m "add all"
