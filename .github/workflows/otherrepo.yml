@@ -9,7 +9,7 @@ jobs:
         with:
           repository: radio6254/temp
           ref: 'main'
-          token:  ${{ secrets.ROBOT_USER_SCREENIT }}
+          token:  ${{ secrets.SCREENIT_ROBOT_USER }}
       - name: setup git config
         run: |
           git config user.name "GitHub Actions Bot"
