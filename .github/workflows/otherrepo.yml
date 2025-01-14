@@ -25,7 +25,7 @@ jobs:
           git add -A
           git commit -m "remove all"
           git push
-          # rsync -av --exclude '.*' ../own_repository/ external_repository/
-          # git add * 
-          # git commit -m "add all"
-          # git push
+          rsync -av --exclude '.*' ../own_repository/ external_repository/
+          git add -A 
+          git commit -m "add all"
+          git push
