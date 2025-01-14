@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: https://github.com/radio6254/temp.git
+          repository: radio6254/temp
           ref: 'main'
           token:  ${{ secrets.ROBOT_USER_SCREENIT }}
       - name: setup git config
