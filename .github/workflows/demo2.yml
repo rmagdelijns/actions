@@ -22,9 +22,10 @@ jobs:
         - name: Set output variable
       #id is nodig bij een output. Namen kunnen strings bevatten, strings niet. Hierdoor step.outputs; id niet heeft niet referen
           id: output_step
-          run: |
+          run:  |
             echo "OUTPUTVOORBEELD=Hallo, dit is een output!" >> $GITHUB_OUTPUT
-          	#nieuwe stap waar gebruik gemaakt wordt van output van vorige stap
+          	
+      #nieuwe stap waar gebruik gemaakt wordt van output van vorige stap
     
         - name: Print output variable
           run:  | 
