@@ -29,3 +29,13 @@ jobs:
       - name: Print output variable
         run: |
           echo "De output is: ${{ steps.output_step.outputs.OUTPUTVOORBEELD }}"
+
+  Ander-Job-Input:
+    runs-on: ubuntu-latest
+    # Runt pas nadat vorige job klaar is
+    needs: [Input-Output-parallel]
+    steps:
+    # Verwijst naar ander job, hier zal niets uit moeten komen 
+      - name: Print output variable
+        run:  | 
+          echo "De output is: ${{ steps.output_step.outputs.OUTPUTVOORBEELD }}"
