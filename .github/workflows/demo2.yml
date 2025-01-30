@@ -1,0 +1,16 @@
+name: GitHub Actions Demo
+# Hoe het in actions tab weergegeven wordt. actor is gene die het uitvoert. 
+run-name: ${{ github.actor }} is testing out GitHub Actions
+on:
+# Handmatige runs
+  workflow_dispatch:
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+    # Bij een run geef je aan dat het een linux commando is. 
+      - run: echo "HI dit is een test" 
+    # Geef een duidelijke naam bij de test
+      - name: Ander Test
+        run: echo "Ander test"
